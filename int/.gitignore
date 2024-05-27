@@ -1,0 +1,3 @@
+frida-hook-target
+**/*.so
+**/*.o
