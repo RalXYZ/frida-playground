@@ -5,7 +5,7 @@
   "private": true,
   "main": "agent/index.ts",
   "scripts": {
-    "build": "frida-compile hook.ts -o _hook.js -c",
+    "build": "frida-compile hook.ts -o _hook.js",
     "watch": "frida-compile hook.ts -o _hook.js -w"
   },
   "devDependencies": {
