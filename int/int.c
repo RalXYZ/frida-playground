@@ -8,6 +8,7 @@ int foo(int bar) {
 }
 
 int main() {
+    printf ("foo() is at %p\n", foo);
     while (1) {
         int result = foo(2);
         printf("result = %d\n", result);
