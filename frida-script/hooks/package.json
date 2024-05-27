@@ -5,7 +5,6 @@
   "private": true,
   "main": "agent/index.ts",
   "scripts": {
-    "prepare": "npm run build",
     "build": "frida-compile hook.ts -o _hook.js -c",
     "watch": "frida-compile hook.ts -o _hook.js -w"
   },

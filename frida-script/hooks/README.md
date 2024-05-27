@@ -1,7 +1,13 @@
-### How to compile & load
+### Prerequirements
 
 ```sh
-$ npm install
+npm install
+```
+
+### Build
+
+```sh
+npm run build
 ```
 
 ### Development workflow
@@ -9,7 +15,7 @@ $ npm install
 To continuously recompile on change, keep this running in a terminal:
 
 ```sh
-$ npm run watch
+npm run watch
 ```
 
 And use an editor like Visual Studio Code for code completion and instant
