@@ -5,7 +5,7 @@ jscode = """
 // console.log(Module.enumerateExports("libmylib.so")[0].name);
 Interceptor.attach(Module.getExportByName("libmylib.so", "foo"), {
   onEnter(args) {
-    console.log("===============RFCOMM_CreateConnection===================");
+    console.log("===============HOOK TRIGGERED===================");
     send("Hook start");
     args[0] = new NativePointer(2);
     send("args[0]=" + args[0]);
@@ -15,14 +15,14 @@ Interceptor.attach(Module.getExportByName("libmylib.so", "foo"), {
 
 
 def printMessage(message, data):
-    if message['type'] == 'send':
-        print('[*] {0}'.format(message['payload']))
+    if message["type"] == "send":
+        print("[*] {0}".format(message["payload"]))
     else:
         print(message)
 
 
 # frida-playground
-process = frida.get_device("socket").attach('main')
+process = frida.get_device("socket").attach("frida-hook-target")
 script = process.create_script(jscode)
 print("script created")
 script.on('message', printMessage)
@@ -40,6 +40,6 @@ sys.stdin.read()
 # """)
 # def on_message(message, data):
 #     print(message)
-# script.on('message', on_message)
+# script.on("message", on_message)
 # script.load()
 # sys.stdin.read()
