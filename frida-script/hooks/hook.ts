@@ -30,11 +30,8 @@ Interceptor.attach(Module.getExportByName("libmylib.so", "foo_struct_ptr"), {
   onEnter(args) {
     send("Hook foo_struct_ptr start");
     args[0] = st;
-    send("sp->u32_a=0x" + args[0].readUInt().toString(16));  // read sp->u32_a
-    send("args[0]=" + args[0]);
-    send("args[1]=" + args[1]);
-    send("args[2]=" + args[2]);
-    send("args[3]=" + args[3]);
-    send("args[4]=" + args[4]);
+    send("sp->u32_a=0x" + args[0].readU32().toString(16));  // read sp->u32_a, convert to hex
+    send("sp->u32_b=0x" + args[0].add(4).readU32().toString(16));  // add 4 bytes
+    send("sp->u64_a=0x" + args[0].add(8).readU64().toString(16));  // add 8 bytes
   },
 });
